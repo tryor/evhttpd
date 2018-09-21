@@ -70,8 +70,7 @@ int main(int argc, char** argv) {
     HttpServer::loop();
 }
 ```
-
-## 更多：
+更多：
 @see (https://github.com/tryor/evhttpd/releases/download/0.0.4/evhttpd_example.zip)
 
 ## 注意
