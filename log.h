@@ -16,7 +16,7 @@
 #include <sys/time.h>
 #include <sys/timeb.h>
 #include <stdio.h>
-
+#include <unistd.h>
 
 /**
  * 使用宏实现的简单LOG工具
