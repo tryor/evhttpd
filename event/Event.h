@@ -20,7 +20,7 @@
    */
   class Event {
     public:
-      Event(EventType t = NULL, void* source=NULL):type(t), source(source){
+      Event(EventType t = 0, void* source=NULL):type(t), source(source){
 
       }
       virtual ~Event(){}
