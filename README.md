@@ -2,7 +2,7 @@
 
 ## evhttpd
 =======
-# evhttpd 是一个基于libev网络库，用C++语言编写的一个轻量级HTTP服务框架。此代码是几年前学习C++时闲着蛋疼整出来的，不知道有没有什么问题，仅共大家娱乐。若应用在生产环境，出问题别怪我。（o´・ェ・｀o）
+evhttpd 是一个基于libev网络库，用C++语言编写的一个轻量级HTTP服务框架。此代码是几年前学习C++时闲着蛋疼整出来的，不知道有没有什么问题，仅共大家娱乐。若应用在生产环境，出问题别怪我。（o´・ェ・｀o）
 
 ## 使用evhttpd需要的条件:
 =======
@@ -36,7 +36,7 @@
  
 ## 例子
 =======
-
+```C++
 #include <evhttp/HttpServer.h>
 #include <evhttp/Config.h>
 #include <evhttp/HttpServletFactory.h>
@@ -74,6 +74,7 @@ int main(int argc, char** argv) {
     }
     HttpServer::loop();
 }
+```
 
 # 更多：
 @see (https://github.com/tryor/evhttpd/releases/download/0.0.4/evhttpd_example.zip)
