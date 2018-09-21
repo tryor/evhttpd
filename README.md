@@ -15,19 +15,21 @@ evhttpd 是一个基于libev网络库，用C++语言编写的一个轻量级HTTP
 
 
 ## 安装依赖
+```
  wget http://dist.schmorp.de/libev/libev-4.24.tar.gz
  tar xzvf libev-4.24.tar.gz 
  cd libev-4.24
  ./configure
  make & make install
- 
+ ```
 ## 安装evhttpd库
+```
  wget https://github.com/tryor/evhttpd/releases/download/0.0.4/libevhttp-0.0.4.tar.gz
  tar xzvf libevhttp-0.0.4.tar.gz
  cd libevhttp-0.0.4
  ./configure
  make & make install
- 
+ ```
 
  
 ## 例子
