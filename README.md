@@ -1,12 +1,11 @@
 [English](README_en.md)
 
 ## evhttpd
-evhttpd 是一个基于libev网络库，用C++语言编写的一个轻量级HTTP服务框架。此代码是几年前学习C++时闲着蛋疼整出来的，仅共大家娱乐。（o´・ェ・｀o）
+evhttpd 是一个基于libev网络库，用C++语言编写的一个轻量级HTTP服务框架。
 
 ## 使用evhttpd需要的条件:
 * GCC > 4.7
-* libev > 4.0 
-* cmake > 3.10
+* libev > 4.0
 
 
 ## 操作系统
