@@ -1,0 +1,7 @@
+*.txt
+/test/
+/nbproject
+.dep.inc
+/nbproject/private
+/nbproject/configurations.xml
+/nbproject/Makefile-Debug.mk
