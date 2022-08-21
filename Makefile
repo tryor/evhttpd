@@ -49,12 +49,13 @@ MKDIR=mkdir
 CP=cp
 CCADMIN=CCadmin
 RANLIB=ranlib
-#"-static"
-LDFLAGS=-lev
+
+LDFLAGS=-lev -lrt
 CFLAGS=-U_FORTIFY_SOURCE
-# -lrt
 
 #-L/usr/local/lib -levent -L/usr/lib64 -luuid
+#"-static"
+#LDFLAGS=-Wl,--whole-archive -lev -lrt -Wl,--no-whole-archive
 
 # build
 build: .build-post

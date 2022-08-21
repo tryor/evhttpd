@@ -30,9 +30,9 @@ public:
     
 private:
     //大写转小写数组
-    static char lowerCaseChars[];
+    static unsigned char lowerCaseChars[];
     //小写转大写数组
-    static char upperCaseChars[];
+    static unsigned char upperCaseChars[];
 };
 
 #endif	/* STRINGUTILS_H */

@@ -68,7 +68,7 @@ public:
 
 
 /**
- * IO读完成事件，当IOReader读操作完成后触发此事件
+ * IO读完成事件，当IIOReader读操作完成后触发此事件
  */
 class IOReadCompletionEvent : public Event{
 public:
