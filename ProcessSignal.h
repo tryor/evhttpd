@@ -14,11 +14,16 @@
 #include "events.h"
 #include "event/EventDispatcher.h"
 
-#include <ext/hash_map>
-using __gnu_cxx::hash;
-using __gnu_cxx::hashtable;
-using __gnu_cxx::hash_map;
-using __gnu_cxx::hash_multimap;
+//using __gnu_cxx::hash;
+//using __gnu_cxx::hashtable;
+//using __gnu_cxx::hash_map;
+//using __gnu_cxx::hash_multimap;
+
+//using std::hash;
+//using std::hashtable;
+//using std::hash_map;
+//using std::hash_multimap;
+
 
 /**
  * 接收进程信号, 生成信号事件, 可同时监听多种信号
@@ -62,7 +67,7 @@ protected:
     }
     
 protected:
-    typedef hash_map<ev::sig*, int, PointerHash, PointerCompare> EVSignals;
+    typedef std::unordered_map<ev::sig*, int, PointerHash, PointerCompare> EVSignals;
     //所有信号事件
     EVSignals evSignals;
     

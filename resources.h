@@ -13,7 +13,7 @@
 //#define LOG_LEVEL LOG_ERROR_LEVEL
 //#define LOG_LEVEL LOG_WARN_LEVEL
 
-#include <ext/hash_map>
+#include <unordered_map>
 #include <string.h>
 #include <netinet/in.h>
 #include "log.h"
@@ -165,7 +165,7 @@ typedef struct PointerCompare{
 //Hash函数
 typedef struct PointerHash{
     size_t operator()(const void* h) const{
-        __gnu_cxx::hash<unsigned long> H;
+        std::hash<unsigned long> H;
         return H((unsigned long)h);
     }
 }PointerHash;     

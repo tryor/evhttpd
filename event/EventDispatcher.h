@@ -8,10 +8,10 @@
 #ifndef EVENTDISPATCHER_H_
 #define EVENTDISPATCHER_H_
 
-#include <ext/hash_map>
+#include <unordered_map>
+#include <vector>
 #include "Event.h"
 #include "IEventDispatcher.h"
-
 
 //namespace Try {
   class IEventListener;
@@ -61,8 +61,8 @@
       std::vector<const Event*> allAsynEvents;
 
       //所有具体事件类型相关监听器
-      __gnu_cxx::hash_map<int, std::vector<IEventListener*>*> allTypeListeners;
-      typedef __gnu_cxx::hash_map<int, std::vector<IEventListener*>*>::iterator ListenerMapIterator;
+      std::unordered_map<int, std::vector<IEventListener*>*> allTypeListeners;
+      typedef std::unordered_map<int, std::vector<IEventListener*>*>::iterator ListenerMapIterator;
       typedef std::vector<IEventListener*>::iterator ListenerIterator;
 
       //监听所有事件的事件监听器

@@ -9,7 +9,6 @@
 #define	_KEYVALUES_H
 
 #include <vector>
-#include <ext/hash_map>
 #include <string>
 #include <iostream>
 #include "resources.h"
@@ -33,7 +32,7 @@ public:
         Value(const char* text):text(text), next(NULL){}
     }Value;    
     
-    typedef __gnu_cxx::hash_map<const char*, Value*, __gnu_cxx::hash<const char*>, T_KeyComp> Data;
+    typedef std::unordered_map<const char*, Value*, std::hash<const char*>, T_KeyComp> Data;
     Data data;
     
 public:

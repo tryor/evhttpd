@@ -9,8 +9,7 @@
 #define	MEMORYPOOL_H
 #include "resources.h"
 #include <sys/types.h>
-#include <ext/hash_map>
-#include <ext/hash_set>
+#include <unordered_set>
 #include <stdlib.h>
 
 /**
@@ -64,7 +63,7 @@ public:
         void freeAll();
         
     private:
-        typedef __gnu_cxx::hash_set<void*, PointerHash, PointerCompare> MemoryPtrs;
+        typedef std::unordered_set<void*, PointerHash, PointerCompare> MemoryPtrs;
         MemoryPtrs memoryPtrs;        
         
     };

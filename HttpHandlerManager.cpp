@@ -54,7 +54,7 @@ void HttpHandlerManager::recycle(HttpHandler* handler){
 /** 强行关闭未结束的Handler */
 void HttpHandlerManager::closeAll(){
     const HttpHandlerManager::HttpHandlerSet* allHandlers = HttpHandlerManager::instance.getAllHttpHandlers();
-    HttpHandlerManager::HttpHandlerSet::iterator it = allHandlers->begin();
+    auto it = allHandlers->begin();
     for(; it != allHandlers->end(); it++){
         if(!((*it)->isClosed())){
             (*it)->close();
@@ -66,7 +66,7 @@ void HttpHandlerManager::closeAll(){
 void HttpHandlerManager::notifyCloseAll(){
     LOG_DEBUG("AllCount:%d",  HttpHandlerManager::instance.getAllCount());
     const HttpHandlerManager::HttpHandlerSet* allHandlers = HttpHandlerManager::instance.getAllHttpHandlers();
-    HttpHandlerManager::HttpHandlerSet::iterator it = allHandlers->begin();
+    auto it = allHandlers->begin();
     for(; it != allHandlers->end(); it++){
         if(!((*it)->isClosed())){
             (*it)->notifyClose();

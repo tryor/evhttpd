@@ -9,7 +9,7 @@
 #define	CLEANERTIMER_H
 
 #include <vector>
-#include <ext/hash_set>
+#include <unordered_set>
 #include "libev.h"
 #include "resources.h"
 #include "ICleaner.h"
@@ -55,8 +55,7 @@ public:
 //    }
     
 private:
-    typedef __gnu_cxx::hash_set<ICleaner*, PointerHash, PointerCompare> CleanerSet;
-//    typedef std::vector<ICleaner*> Cleaners;
+    typedef std::unordered_set<ICleaner*, PointerHash, PointerCompare> CleanerSet;
     CleanerSet cleaners;
     
 private:

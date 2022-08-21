@@ -18,7 +18,7 @@
 #include <sys/timeb.h>
 #include <vector>
 #include <arpa/inet.h>
-#include <ext/hash_map>
+#include <unordered_map>
 #include <time.h>
 #include "HttpServlet.h"
 
@@ -117,7 +117,7 @@ public:
         const char* ctttype = request->getContentType();
         ssize_t cttlen = request->getContentLength();
         LOG_INFO("request->getContentType():%s", request->getContentType()?request->getContentType():"null");
-        LOG_INFO("request->getContentLength():%d", request->getContentLength());
+        LOG_INFO("request->getContentLength():%ld", request->getContentLength());
         
         if(ctttype && strcmp(ctttype, "application/x-www-form-urlencoded")==0){
             //是form表单
@@ -279,6 +279,9 @@ protected:
     virtual bool onWriteCompletionEvent(const IOWriteCompletionEvent* e){
         if(e->length > 0){
             writeCompleteBytes += e->length;
+            return false;
+        }else{
+            return true;
         }
     }
     
@@ -674,7 +677,7 @@ protected:
             
         }else if(rsize < 0){
             response->setStatus(400, "read flv error");
-            LOG_WARN("error, rsize:%d", rsize);
+            LOG_WARN("error, rsize:%ld", rsize);
             complete();
         }else{
             complete();
@@ -719,7 +722,7 @@ private:
             return;
         }
         if(iIOReader->waitingQueueSize() > 0){
-            LOG_WARN("waitingQueueSize():%d", iIOReader->waitingQueueSize()); //还有读数据请求没有返回，还是再等等
+            LOG_WARN("waitingQueueSize():%ld", iIOReader->waitingQueueSize()); //还有读数据请求没有返回，还是再等等
             return;
         }
         iIOReader->read(buff, readBytesPerEach);
@@ -1411,7 +1414,7 @@ public:
                     allActiveHandlerCount += httpProcesses[i]->getActiveHandlerCount(); 
                     allHandlerCount += httpProcesses[i]->getHttpHandlerCount();
 
-                    sprintf(outstr, "Process(%ld), total requests:(%d), active handlers:(%d), all handlers:(%d)<br>", httpProcesses[i]->getId(), httpProcesses[i]->getTotalRequestCount(), httpProcesses[i]->getActiveHandlerCount(), httpProcesses[i]->getHttpHandlerCount());
+                    sprintf(outstr, "Process(%d), total requests:(%ld), active handlers:(%d), all handlers:(%d)<br>", httpProcesses[i]->getId(), httpProcesses[i]->getTotalRequestCount(), httpProcesses[i]->getActiveHandlerCount(), httpProcesses[i]->getHttpHandlerCount());
                     addStatInfo(outstr);
     //                cout<<"getpid():"<<getpid()<<endl;
     //                cout<<(long(httpProcesses[i]))<<", pid is:"<<httpProcesses[i]->getId()<<", active requests:"<<httpProcesses[i]->getActiveHandlerCount()<<endl;
@@ -1440,7 +1443,7 @@ public:
                 lastTime = ctime;
 
                 addStatInfo("<br>");
-                sprintf(outstr, "collect: Requests per second:(%0.00f), requests per second peak:(%0.00f),  all total requests:(%d), all active handlers:(%d), all handlers:(%d)<br>", reqCountPerSecond, reqCountPerSecondPeak, allTotalRequestCount, allActiveHandlerCount, allHandlerCount);
+                sprintf(outstr, "collect: Requests per second:(%0.00f), requests per second peak:(%0.00f),  all total requests:(%ld), all active handlers:(%ld), all handlers:(%ld)<br>", reqCountPerSecond, reqCountPerSecondPeak, allTotalRequestCount, allActiveHandlerCount, allHandlerCount);
                 addStatInfo(outstr);
             }
 
@@ -1555,7 +1558,7 @@ private:
     
 };
 
-int main44(int argc, char** argv) {
+int main(int argc, char** argv) {
     
 //    setSignalHandler();
     

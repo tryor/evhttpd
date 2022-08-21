@@ -11,7 +11,6 @@
 #include "libev.h"
 #include <vector>
 #include "Request.h"
-#include <ext/hash_map>
 #include <string>
 #include "KeyValues.h"
 #include "Config.h"
@@ -105,7 +104,7 @@ public:
      * 请求应答模式, 如果要异步处理请求，在HttpServlet.service方法返回前设置setAsynAnswerMode(true), 
      * 在异步模式下，处理完请求后需要调用complete方法通知请求处理完成。
      * 
-     * @param b true，为同步模式(默认), false, 为异步模式
+     * @param b true，为异步模式(默认), false, 为同步模式
      */
     void setAsynAnswerMode(bool b);
     

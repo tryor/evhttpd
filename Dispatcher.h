@@ -12,7 +12,6 @@
 #include "libev.h"
 #include <vector>
 #include <queue>
-#include <ext/hash_map>
 #include "Process.h"
 #include "HttpProcess.h"
 #include "resources.h"
@@ -91,7 +90,7 @@ public:
 private:
     //定义进程容器类型
     typedef std::vector<HttpProcess*> HttpProcessVector;
-    typedef __gnu_cxx::hash_set<HttpProcess*, PointerHash, PointerCompare> HttpProcessSet;
+    typedef std::unordered_map<HttpProcess*, PointerHash, PointerCompare> HttpProcessSet;
 
     //进程总数
     int processCount;

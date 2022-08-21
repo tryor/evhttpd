@@ -7,7 +7,7 @@
 
 #include "EventDispatcher.h"
 #include "IEventListener.h"
-//#include "../thread/Synchronized.h"
+#include <algorithm>
 
 using namespace std;
 

@@ -10,7 +10,7 @@
 
 #include "resources.h"
 #include "libev.h"
-#include <ext/hash_set>
+#include <unordered_set>
 #include "http_1.1/Http11HandlerFactory.h"
 #include "ICleaner.h"
 #include "HttpHandler.h"
@@ -20,7 +20,8 @@
  */
 class HttpHandlerManager : public ICleaner{
 public:
-    typedef __gnu_cxx::hash_set<HttpHandler*, PointerHash, PointerCompare> HttpHandlerSet;    
+//    typedef std::unordered_set<HttpHandler*, PointerHash, PointerCompare> HttpHandlerSet;
+    typedef std::unordered_set<HttpHandler*> HttpHandlerSet;  
     typedef std::vector<HttpHandler*> HttpHandlerVector;
     
 private:
